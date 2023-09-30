@@ -1,0 +1,18 @@
+#!/bin/bash
+
+if pgrep ffmpeg 
+then 
+	pkill ffmpeg
+else
+
+	# 5-character random string
+	rand=$(cat /dev/urandom | tr -dc 'A-Z0-9' | fold -w 7 | head -n 1)
+
+	# Construct filename
+	filename="${PWD}/Downloads/video_${rand}.mp4"
+
+	slop=$(slop -f "%x %y %w %h %g %i") || exit 1
+	read -r X Y W H G ID <<< $slop
+
+	ffmpeg -framerate 24 -f x11grab -s "$W"x"$H" -i :0.0+$X,$Y $filename
+fi
