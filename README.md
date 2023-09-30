@@ -18,6 +18,8 @@ The recommended use for the script consists of the following steps:
 
 ![image](https://github.com/JayXT/RecordScreenRegionVideo/assets/8045344/0efb0df7-0e33-4ee4-9dea-821f13e6421a)
 
+The video files are saved to ~/Downloads directory.
+
 # Modifications
 
 If need be, the ffmpeg command could be modified to also record audio, use different encoders, etc.
